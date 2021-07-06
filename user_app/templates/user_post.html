@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6 offset-3">
+            <h2 style="font-family:cursive; color: rgb(255, 166, 0);"
+            class="text-center">Post</h2>
+            <hr>
+            <form method="POST" action="">
+                {% csrf_token %} 
+                
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label"><b>Text</b></label>
+                  <textarea id="w3review" name="content" rows="4" cols="50" class="form-control"></textarea>
+                  <!-- <input type="textarea" rows="4" class="form-control" id="exampleInputPassword1"> -->
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="submit">
+              </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock body %}

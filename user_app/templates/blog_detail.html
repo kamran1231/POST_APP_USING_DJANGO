@@ -1,0 +1,56 @@
+
+
+
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="col-sm-8 offset-2">
+    
+    {% if request.user.is_authenticated %}
+   
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back</a>
+    {% else %}
+        <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+
+    {% endif %}
+           
+
+        
+    
+            <hr>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 offset-3">
+                        <h3 class="mb-0" style="font-family: Arial, Helvetica, sans-serif; color: rgb(196, 113, 36);">
+                            {{posts.user|capfirst}}</h3>
+                        <div class="mb-1 text-muted"><b>Pub Date:</b> {{posts.created_at}}</div>
+                        
+                        <p class="card-text mb-auto" style="font-family:monospace;"><b
+                                style="color: rgb(56, 185, 30);">Content:</b> {{posts.text}}</p>
+                                <br>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+   
+    
+    
+   
+
+    
+</div>
+
+</div>
+
+</div>
+    
+{% endblock body %}

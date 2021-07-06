@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="col-sm-8 offset-2">
+    
+
+    <h2 style="font-family:cursive; color: rgb(255, 166, 0);"
+            class="text-center">Blog Post</h2>
+            {% if request.user.is_authenticated %}
+
+        <a href="/user_post" class="btn btn-primary">Add POST</a>
+    {% else %}
+        <a href="/login" class="btn btn-primary">Add POST</a>
+
+    {% endif %}
+            <hr>
+
+
+<div class="row mb-2">
+    
+
+    {% for d in posts %}
+    <div class="col-md-6">
+        <div class="
+      row
+      g-0
+      border
+      rounded
+      overflow-hidden
+      flex-md-row
+      mb-4
+      shadow-sm
+      h-md-250
+      position-relative
+    ">
+            <div class="col p-4 flex-column">
+                <h3 class="mb-0" style="font-family: Arial, Helvetica, sans-serif; color: rgb(196, 113, 36);">
+                    {{d.user|capfirst}}</h3>
+                <div class="mb-1 text-muted"><b>Pub Date:</b> {{d.created_at}}</div>
+                <!-- <div class="mb-1 text-muted"><b>Author:</b> {{d.author}}</div> -->
+                <p class="card-text mb-auto" style="font-family:monospace;"><b
+                        style="color: rgb(56, 185, 30);">Content:</b> {{d.text|truncatewords:"20"}}</p>
+                        <br>
+
+                        <a href="/post_detail/{{d.id}}" class="stretched-link btn btn-primary">Continue reading</a>
+                        
+               
+                
+                
+            </div>
+            
+
+        </div>
+    </div>
+
+    {% endfor %}
+    
+    
+   
+
+    
+</div>
+
+</div>
+
+</div>
+    
+{% endblock body %}
